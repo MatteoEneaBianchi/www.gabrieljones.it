@@ -12,8 +12,66 @@
         <h2>Login</h2>
         <button onclick="netlifyIdentity.open()">Accedi con Netlify</button>
     </div>
-    <div class="container" id="dashboard">
-
+    <div class="ciao" id="dashboard">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 10px;
+            width: 90%;
+            height: 90vh;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            color: white;
+            padding: 15px;
+            transition: left 0.3s;
+        }
+        .visible {
+            left: 0;
+        }
+    </style>
+    <h1>Dashboard</h1>
+    <div class="sidebar" id="sidebar">
+        <p>Menu Sidebar</p>
+        <ul>
+            <li>Opzione 1</li>
+            <li>Opzione 2</li>
+            <li>Opzione 3</li>
+        </ul>
+    </div>
+    <div class="container">
+        <iframe src="https://example.com"></iframe>
+        <iframe src="https://example.org"></iframe>
+        <iframe src="https://example.net"></iframe>
+        <iframe src="https://example.edu"></iframe>
+    </div>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === ' ') {
+                event.preventDefault(); // Evita lo scroll della pagina
+                document.getElementById('sidebar').classList.toggle('visible');
+            }
+        });
+    </script>
         <button onclick="logout()">Logout</button>
         <canvas id="myChart"></canvas>
     </div>
